@@ -124,9 +124,12 @@ p, li, label, span, div { font-family: 'Inter', 'Segoe UI', sans-serif; }
 /* slider min/max endpoint numbers + current value bubble */
 [data-testid="stSlider"] div, [data-testid="stSlider"] span,
 [data-testid="stTickBar"] * { color: #20261F !important; }
-/* multiselect / selectbox placeholder + selected chip text */
-[data-baseweb="select"] * { color: #20261F !important; }
-[data-baseweb="select"] input::placeholder { color: #66605080 !important; }
+/* multiselect / selectbox placeholder + selected chip text —
+   these boxes have a dark navy fill, so their text needs to stay LIGHT,
+   unlike the labels above which sit on the cream background. */
+[data-baseweb="select"] * { color: #EDE6D2 !important; }
+[data-baseweb="select"] input::placeholder { color: #EDE6D280 !important; }
+.stTextInput input, .stNumberInput input { color: #EDE6D2 !important; }
 
 /* ---------- mobile responsiveness ---------- */
 @media (max-width: 640px) {
