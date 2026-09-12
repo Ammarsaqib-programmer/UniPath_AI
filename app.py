@@ -120,7 +120,7 @@ p, li, label, span, div { font-family: 'Inter', 'Segoe UI', sans-serif; }
 LETTERHEAD = """
 <div class="seal-wrap">
   <div class="seal">U</div>
-  <div class="letterhead-name">UniMatch</div>
+  <div class="letterhead-name">UniPathAi</div>
   <div class="letterhead-sub">Office of Global Admissions</div>
 </div>
 <hr class="side-rule">
