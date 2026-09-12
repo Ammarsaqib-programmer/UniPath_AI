@@ -112,6 +112,22 @@ p, li, label, span, div { font-family: 'Inter', 'Segoe UI', sans-serif; }
   color: #20261F !important; opacity: 1 !important; }
 [data-testid="stChatInput"] textarea { color: #20261F !important; }
 
+/* ---------- form widget label readability fix ---------- */
+[data-testid="stWidgetLabel"] p, [data-testid="stWidgetLabel"] label,
+.stTextInput label, .stNumberInput label, .stSelectbox label,
+.stSlider label, .stMultiSelect label, .stCheckbox label,
+.stSelectSlider label, .stTextInput p, .stNumberInput p,
+.stSelectbox p, .stSlider p, .stMultiSelect p, .stCheckbox p,
+.stSelectSlider p {
+  color: #20261F !important; opacity: 1 !important; font-weight: 500;
+}
+/* slider min/max endpoint numbers + current value bubble */
+[data-testid="stSlider"] div, [data-testid="stSlider"] span,
+[data-testid="stTickBar"] * { color: #20261F !important; }
+/* multiselect / selectbox placeholder + selected chip text */
+[data-baseweb="select"] * { color: #20261F !important; }
+[data-baseweb="select"] input::placeholder { color: #66605080 !important; }
+
 /* ---------- mobile responsiveness ---------- */
 @media (max-width: 640px) {
   .hero { padding: 1.6rem 1.4rem; }
