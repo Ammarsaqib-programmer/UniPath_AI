@@ -101,6 +101,19 @@ p, li, label, span, div { font-family: 'Inter', 'Segoe UI', sans-serif; }
 .site-footer { text-align: center; color: #948C72; font-size: .82rem;
   border-top: 1px solid #20261F26; margin-top: 3rem; padding: 1.5rem 0 2.4rem 0;
   font-family: 'Fraunces', serif; font-style: italic; }
+
+/* ---------- mobile responsiveness ---------- */
+@media (max-width: 640px) {
+  .hero { padding: 1.6rem 1.4rem; }
+  .hero-title { font-size: 1.7rem; max-width: 100%; }
+  .hero-sub { font-size: .92rem; max-width: 100%; }
+  .hero-facts { gap: .4rem; }
+  .hero-fact { padding: 0 .9rem; }
+  .ledger-entry { flex-direction: column; gap: .6rem; }
+  .ledger-figures { text-align: left; min-width: 0; }
+  .section-title { font-size: 1.25rem; }
+  [data-testid="column"] { min-width: 100% !important; flex: 1 1 100% !important; }
+}
 </style>
 """
 
