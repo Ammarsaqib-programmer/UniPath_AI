@@ -102,6 +102,16 @@ p, li, label, span, div { font-family: 'Inter', 'Segoe UI', sans-serif; }
   border-top: 1px solid #20261F26; margin-top: 3rem; padding: 1.5rem 0 2.4rem 0;
   font-family: 'Fraunces', serif; font-style: italic; }
 
+/* ---------- chat / AI counsellor readability fix ---------- */
+[data-testid="stChatMessage"] { background: #FBF8EF; border: 1px solid #20261F1A;
+  border-radius: 4px; }
+[data-testid="stChatMessage"] p, [data-testid="stChatMessage"] li,
+[data-testid="stChatMessage"] span, [data-testid="stChatMessage"] div,
+[data-testid="stChatMessage"] table, [data-testid="stChatMessage"] td,
+[data-testid="stChatMessage"] th, [data-testid="stChatMessageContent"] * {
+  color: #20261F !important; opacity: 1 !important; }
+[data-testid="stChatInput"] textarea { color: #20261F !important; }
+
 /* ---------- mobile responsiveness ---------- */
 @media (max-width: 640px) {
   .hero { padding: 1.6rem 1.4rem; }
