@@ -131,6 +131,13 @@ p, li, label, span, div { font-family: 'Inter', 'Segoe UI', sans-serif; }
 [data-baseweb="select"] input::placeholder { color: #EDE6D280 !important; }
 .stTextInput input, .stNumberInput input { color: #EDE6D2 !important; }
 
+/* ---------- info/warning/success/error alert box readability ---------- */
+[data-testid="stAlert"] * { color: #20261F !important; opacity: 1 !important; }
+[data-testid="stAlertContentInfo"] * { color: #16406B !important; }
+[data-testid="stAlertContentWarning"] * { color: #7A5E1F !important; }
+[data-testid="stAlertContentSuccess"] * { color: #1B3A2E !important; }
+[data-testid="stAlertContentError"] * { color: #7C2D2D !important; }
+
 /* ---------- mobile responsiveness ---------- */
 @media (max-width: 640px) {
   .hero { padding: 1.6rem 1.4rem; }
