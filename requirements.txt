@@ -1,6 +1,5 @@
 streamlit==1.41.1
 pandas==2.2.3
-# ---- added later when modules are integrated ----
-# groq            # Azmatullah: Groq API client
-# sentence-transformers, faiss-cpu, pypdf ...  # Azmatullah: RAG stack
-# scikit-learn    # Hassan: if ML-based scoring is used
+scikit-learn
+groq
+numpy
