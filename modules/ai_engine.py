@@ -15,20 +15,25 @@ from typing import Any, Dict
 
 _ai_instance = None
 _ai_available = True
+_import_error = None
 
 try:
     from main import UniPathAI
-except Exception:
+except Exception as e:
     _ai_available = False
+    _import_error = f"import error: {e}"
+    print(f"[ai_engine] Failed to import UniPathAI: {e}")
 
 
 def _get_ai():
-    global _ai_instance
+    global _ai_instance, _import_error
     if _ai_instance is None and _ai_available:
         try:
             _ai_instance = UniPathAI()
-        except Exception:
+        except Exception as e:
             _ai_instance = None
+            _import_error = f"init error: {e}"
+            print(f"[ai_engine] Failed to initialize UniPathAI: {e}")
     return _ai_instance
 
 
@@ -81,4 +86,5 @@ def chat_with_advisor(profile: Dict[str, Any], query: str) -> str:
         "The AI counsellor backend isn't connected in this environment yet — "
         "once Azmatullah's RAG module is merged into this project, I'll answer "
         "this using the verified knowledge base."
+        + (f"\n\n(debug: {_import_error})" if _import_error else "")
     )
