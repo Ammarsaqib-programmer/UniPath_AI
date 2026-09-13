@@ -55,13 +55,41 @@ def generate_explanation(profile: Dict[str, Any], university: Dict[str, Any]) ->
     ai = _get_ai()
     if ai:
         try:
-            question = (
-                f"Explain briefly why {university.get('university')} "
-                f"({university.get('program')}) is a good match for this student. "
-                f"Mention eligibility, scholarship and budget fit."
+            context = (
+                f"University: {university.get('university')}\n"
+                f"Program: {university.get('program')}\n"
+                f"Country: {university.get('country')}\n"
+                f"City: {university.get('city')}\n"
+                f"Tuition (USD/year): {university.get('tuition_usd_yearly')}\n"
+                f"Minimum CGPA required: {university.get('min_cgpa')}\n"
+                f"Minimum IELTS required: {university.get('ielts_min')}\n"
+                f"Scholarship available: {university.get('scholarship_available')}\n"
+                f"Scholarship details: {university.get('scholarship_details')}\n"
+                f"Application deadline: {university.get('application_deadline')}\n"
+                f"Accommodation available: {university.get('accommodation_available')}\n"
+                f"Part-time work allowed: {university.get('part_time_work')}\n"
+                f"Match score for this student: {university.get('match_score')}\n"
             )
-            result = ai.chat(question, _map_profile(profile))
-            return result["answer"]
+            profile_map = _map_profile(profile)
+            profile_text = "\n".join(
+                f"- {k}: {v}" for k, v in profile_map.items() if v not in (None, "", [])
+            )
+            system_prompt = (
+                "You are UniPathAi's admissions counsellor. Answer using ONLY the "
+                "UNIVERSITY DATA given below as ground truth — do not say the "
+                "information is unavailable, since it is provided directly here."
+            )
+            user_prompt = (
+                f"STUDENT PROFILE:\n{profile_text or '(not provided)'}\n\n"
+                f"UNIVERSITY DATA:\n{context}\n\n"
+                "Briefly explain why this university/program is a good match for "
+                "this student. Mention eligibility (CGPA/IELTS), scholarship, "
+                "budget fit, and the application deadline."
+            )
+            # Call the LLM directly (bypassing ai.chat()'s RAG-only grounding)
+            # since we already have the exact row data — no retrieval needed.
+            answer = ai.llm.chat(system_prompt, user_prompt)
+            return answer
         except Exception as e:
             return f"(AI counsellor hit an error, showing a basic summary instead: {e})"
 
