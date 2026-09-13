@@ -406,7 +406,7 @@ def main() -> None:
         <hr class="side-rule">
         <div class="side-note">
         Office hours<br>Mon–Sat, 9:00–18:00<br><br>
-        admissions@unimatch.edu<br>+1 (555) 010-2027
+        admissions@unipathai.com<br>+92 300 1234567
         </div>""", unsafe_allow_html=True)
 
     if page == "Applicant profile":
@@ -418,8 +418,4 @@ def main() -> None:
     else:
         page_advisor()
 
-    st.markdown(FOOTER, unsafe_allow_html=True)
-
-
-if __name__ == "__main__":
-    main()
+    st.markdown(FOOTER,
