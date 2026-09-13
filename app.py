@@ -418,4 +418,11 @@ def main() -> None:
     else:
         page_advisor()
 
-    st.markdown(FOOTER,
+    st.markdown(FOOTER,unsafe_allow_html=True)
+
+
+if __name__ == "__main__":
+    main()
+
+if __name__ == "__main__":
+    main()
